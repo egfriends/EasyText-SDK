@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		074803B4135EBFF000902866 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074803B3135EBFF000902866 /* UIKit.framework */; };
+		074803B6135EBFF000902866 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074803B5135EBFF000902866 /* Foundation.framework */; };
+		074803B8135EBFF000902866 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074803B7135EBFF000902866 /* CoreGraphics.framework */; };
+		074803BE135EBFF000902866 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 074803BC135EBFF000902866 /* InfoPlist.strings */; };
+		074803C1135EBFF000902866 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 074803C0135EBFF000902866 /* main.m */; };
+		074803C4135EBFF000902866 /* TestSnippetsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 074803C3135EBFF000902866 /* TestSnippetsAppDelegate.m */; };
+		074803C7135EBFF000902866 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074803C5135EBFF000902866 /* MainWindow.xib */; };
+		074803CA135EBFF000902866 /* TestSnippetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 074803C9135EBFF000902866 /* TestSnippetsViewController.m */; };
+		074803CD135EBFF000902866 /* TestSnippetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074803CB135EBFF000902866 /* TestSnippetsViewController.xib */; };
+		074803D5135EC02500902866 /* EasyTextSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 074803D3135EC02500902866 /* EasyTextSniffer.m */; };
+		074803D7135EC05800902866 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074803D6135EC05800902866 /* AudioToolbox.framework */; };
+		074803DC135EC29F00902866 /* sniff.wav in Resources */ = {isa = PBXBuildFile; fileRef = 074803DB135EC29F00902866 /* sniff.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		074803AF135EBFF000902866 /* TestSnippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSnippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		074803B3135EBFF000902866 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		074803B5135EBFF000902866 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		074803B7135EBFF000902866 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		074803BB135EBFF000902866 /* TestSnippets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestSnippets-Info.plist"; sourceTree = "<group>"; };
+		074803BD135EBFF000902866 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		074803BF135EBFF000902866 /* TestSnippets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestSnippets-Prefix.pch"; sourceTree = "<group>"; };
+		074803C0135EBFF000902866 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		074803C2135EBFF000902866 /* TestSnippetsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSnippetsAppDelegate.h; sourceTree = "<group>"; };
+		074803C3135EBFF000902866 /* TestSnippetsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSnippetsAppDelegate.m; sourceTree = "<group>"; };
+		074803C6135EBFF000902866 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		074803C8135EBFF000902866 /* TestSnippetsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSnippetsViewController.h; sourceTree = "<group>"; };
+		074803C9135EBFF000902866 /* TestSnippetsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSnippetsViewController.m; sourceTree = "<group>"; };
+		074803CC135EBFF000902866 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TestSnippetsViewController.xib; sourceTree = "<group>"; };
+		074803D3135EC02500902866 /* EasyTextSniffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTextSniffer.m; sourceTree = "<group>"; };
+		074803D4135EC02500902866 /* EasyTextSniffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTextSniffer.h; sourceTree = "<group>"; };
+		074803D6135EC05800902866 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		074803DB135EC29F00902866 /* sniff.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sniff.wav; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		074803AC135EBFF000902866 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				074803D7135EC05800902866 /* AudioToolbox.framework in Frameworks */,
+				074803B4135EBFF000902866 /* UIKit.framework in Frameworks */,
+				074803B6135EBFF000902866 /* Foundation.framework in Frameworks */,
+				074803B8135EBFF000902866 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		074803A4135EBFEF00902866 = {
+			isa = PBXGroup;
+			children = (
+				074803DB135EC29F00902866 /* sniff.wav */,
+				074803D4135EC02500902866 /* EasyTextSniffer.h */,
+				074803D3135EC02500902866 /* EasyTextSniffer.m */,
+				074803B9135EBFF000902866 /* TestSnippets */,
+				074803B2135EBFF000902866 /* Frameworks */,
+				074803B0135EBFF000902866 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		074803B0135EBFF000902866 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				074803AF135EBFF000902866 /* TestSnippets.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		074803B2135EBFF000902866 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				074803D6135EC05800902866 /* AudioToolbox.framework */,
+				074803B3135EBFF000902866 /* UIKit.framework */,
+				074803B5135EBFF000902866 /* Foundation.framework */,
+				074803B7135EBFF000902866 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		074803B9135EBFF000902866 /* TestSnippets */ = {
+			isa = PBXGroup;
+			children = (
+				074803C2135EBFF000902866 /* TestSnippetsAppDelegate.h */,
+				074803C3135EBFF000902866 /* TestSnippetsAppDelegate.m */,
+				074803C5135EBFF000902866 /* MainWindow.xib */,
+				074803C8135EBFF000902866 /* TestSnippetsViewController.h */,
+				074803C9135EBFF000902866 /* TestSnippetsViewController.m */,
+				074803CB135EBFF000902866 /* TestSnippetsViewController.xib */,
+				074803BA135EBFF000902866 /* Supporting Files */,
+			);
+			path = TestSnippets;
+			sourceTree = "<group>";
+		};
+		074803BA135EBFF000902866 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				074803BB135EBFF000902866 /* TestSnippets-Info.plist */,
+				074803BC135EBFF000902866 /* InfoPlist.strings */,
+				074803BF135EBFF000902866 /* TestSnippets-Prefix.pch */,
+				074803C0135EBFF000902866 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		074803AE135EBFF000902866 /* TestSnippets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 074803D0135EBFF000902866 /* Build configuration list for PBXNativeTarget "TestSnippets" */;
+			buildPhases = (
+				074803AB135EBFF000902866 /* Sources */,
+				074803AC135EBFF000902866 /* Frameworks */,
+				074803AD135EBFF000902866 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestSnippets;
+			productName = TestSnippets;
+			productReference = 074803AF135EBFF000902866 /* TestSnippets.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		074803A6135EBFEF00902866 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = EGFriends;
+			};
+			buildConfigurationList = 074803A9135EBFEF00902866 /* Build configuration list for PBXProject "TestSnippets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 074803A4135EBFEF00902866;
+			productRefGroup = 074803B0135EBFF000902866 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				074803AE135EBFF000902866 /* TestSnippets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		074803AD135EBFF000902866 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				074803BE135EBFF000902866 /* InfoPlist.strings in Resources */,
+				074803C7135EBFF000902866 /* MainWindow.xib in Resources */,
+				074803CD135EBFF000902866 /* TestSnippetsViewController.xib in Resources */,
+				074803DC135EC29F00902866 /* sniff.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		074803AB135EBFF000902866 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				074803C1135EBFF000902866 /* main.m in Sources */,
+				074803C4135EBFF000902866 /* TestSnippetsAppDelegate.m in Sources */,
+				074803CA135EBFF000902866 /* TestSnippetsViewController.m in Sources */,
+				074803D5135EC02500902866 /* EasyTextSniffer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		074803BC135EBFF000902866 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				074803BD135EBFF000902866 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		074803C5135EBFF000902866 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				074803C6135EBFF000902866 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		074803CB135EBFF000902866 /* TestSnippetsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				074803CC135EBFF000902866 /* en */,
+			);
+			name = TestSnippetsViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		074803CE135EBFF000902866 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		074803CF135EBFF000902866 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		074803D1135EBFF000902866 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestSnippets/TestSnippets-Prefix.pch";
+				INFOPLIST_FILE = "TestSnippets/TestSnippets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		074803D2135EBFF000902866 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestSnippets/TestSnippets-Prefix.pch";
+				INFOPLIST_FILE = "TestSnippets/TestSnippets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		074803A9135EBFEF00902866 /* Build configuration list for PBXProject "TestSnippets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				074803CE135EBFF000902866 /* Debug */,
+				074803CF135EBFF000902866 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		074803D0135EBFF000902866 /* Build configuration list for PBXNativeTarget "TestSnippets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				074803D1135EBFF000902866 /* Debug */,
+				074803D2135EBFF000902866 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 074803A6135EBFEF00902866 /* Project object */;
+}
