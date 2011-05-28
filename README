@@ -5,4 +5,13 @@ know more about EasyText: http://www.egfriends.com/easytext.html
 
 If you are app developer and want to integrate EasyText to your app: Download the SDK and Sample Project to integrate EasyText into your app, it's really that easy to add this magic to your app. I promise.
 
+To integrate EasyText, you need to 
+1. copy EasyTextSniffer.h, EasyTextSniffer.m and sniff.wav files to your app
+2. import EasyTextSniffer.h file where you need it
+3. call "sniffer = [EasyTextSniffer new];" before you create your UITextView instance
+4. call "sniffer sniffTextView:YourUITextViewInstance delegate:self];"
+5. call "sniffer.caseInsensitive = (BOOL)UserSetting;"
+6. call "sniffer.noSound = (BOOL)UserSetting;"
+7. don't forget "[sniffer release];" in the dealloc method
+
 Thank you. If any questions, http://getsatisfaction.com/egfriends
