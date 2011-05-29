@@ -13,7 +13,10 @@
 @implementation TestSnippetsViewController
 
 - (IBAction)enableEasyText:(id)sender{
-	[sniffer tryEnable];
+	if(!sniffer.enabled)
+		[sniffer tryEnable];
+	else
+		[sniffer disable];
 	if(sniffer.enabled){
 		[sender setTitle:@"disable EasyText" forState:UIControlStateNormal];
 	}
