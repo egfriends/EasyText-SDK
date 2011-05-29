@@ -15,7 +15,7 @@ To integrate EasyText, you need to
 7. don't forget "[sniffer release];" in the dealloc method
 
 You can turn on or turn off EasyText integrated features by calling following two methods:
-	[sniffer tryEnable]; // this method is to turn on EasyText features. If not installed, an UIAlertView will be shown.
+	[sniffer tryEnable]; // this method is to turn on EasyText features. If EasyText app is not installed in user's device, a UIAlertView will be shown.
 	[sniffer disable]; // and this method is to turn it off.
 the practical way to do this is, like in the sample project, make a button or other mechanism to let user turn it on or off. You can get a BOOL value indicating if sniffer is enabled by calling sniffer.enabled.
 
