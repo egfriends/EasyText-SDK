@@ -12,8 +12,9 @@
 
 @interface TestSnippetsViewController : UIViewController <UITextViewDelegate> {
     IBOutlet UITextView *textView;
-	
 	EasyTextSniffer *sniffer;
 }
+
+- (IBAction)enableEasyText:(id)sender;
 
 @end

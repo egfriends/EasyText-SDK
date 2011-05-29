@@ -12,6 +12,15 @@
 
 @implementation TestSnippetsViewController
 
+- (IBAction)enableEasyText:(id)sender{
+	[sniffer tryEnable];
+	if(sniffer.enabled){
+		[sender setTitle:@"disable EasyText" forState:UIControlStateNormal];
+	}
+	else
+		[sender setTitle:@"enable EasyText" forState:UIControlStateNormal];
+}
+
 - (void)dealloc
 {
 	[sniffer release];
@@ -35,7 +44,7 @@
 	
 	// this statement should go into init, not here
 	sniffer = [EasyTextSniffer new];
-	
+
 	// init a textView in self, and set self as delegate of sniffer, which hold a reference of the textView
 	[sniffer sniffTextView:textView delegate:self];
 	

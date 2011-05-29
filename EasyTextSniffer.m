@@ -23,9 +23,14 @@ static NSArray* _snippets(){
 	return array;
 }
 
+static NSString *_ETLocalizedString(NSString *key, NSString *defaultValue){
+	return [[NSBundle mainBundle] localizedStringForKey:key value:defaultValue table:nil];
+}
+
 @implementation EasyTextSniffer
 
 @synthesize caseInsensitive, noSound;
+@synthesize enabled;
 
 - (void)sniffTextView:(UITextView*)tv delegate:(NSObject<UITextViewDelegate>*)dlg{
 	_textView = tv;
@@ -43,6 +48,33 @@ static NSArray* _snippets(){
 	_textView.delegate = _delegate;
 	_textField.delegate = _delegate;
 	_delegate = nil;
+}
+
+- (void)tryEnable{
+	UIPasteboard *_pb = [UIPasteboard pasteboardWithName:_StoreName create:NO];
+	if(nil == _pb){
+		enabled = NO;
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_ETLocalizedString(@"ET_NOTFOUND", @"EasyText not found")
+														message:_ETLocalizedString(@"ET_NOTFOUND_MSG", @"This feature need EasyText, it's a free app")
+													   delegate:self
+											  cancelButtonTitle:_ETLocalizedString(@"ET_CANCEL", @"No")
+											  otherButtonTitles:_ETLocalizedString(@"ET_OK", @"Ok"), nil];
+		[alert show];
+		[alert release];
+	}
+	else
+		enabled = YES;
+}
+
+- (void)disable{
+	enabled = NO;
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+	if(buttonIndex != [alertView cancelButtonIndex]){
+		static NSString* const ETAppURL = @"http://itunes.apple.com/us/app/id433107906?mt=8";
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:ETAppURL]];
+	}
 }
 
 - (void)dealloc{
@@ -66,27 +98,29 @@ static NSString* _dateStringForFormat(NSString*fmt){
 #pragma mark -- text view delegates --
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString*)text{
 	BOOL b = YES;
-	NSString *ntxt = [textView.text stringByReplacingCharactersInRange:range withString:text];
-	int options = NSBackwardsSearch;
-	if(caseInsensitive)
-		options |= NSCaseInsensitiveSearch;
-	NSArray *array = _snippets();
-	for(NSDictionary *dic in array){
-		NSRange nrange = [ntxt rangeOfString:[dic valueForKey:@"_code"] options:options];
-		if (nrange.location < [ntxt length]) {
-			NSString *_t = [dic valueForKey:@"_text"];
-			if([_t rangeOfString:@"%"].location != NSNotFound)
-				_t = _dateStringForFormat(_t);
-			textView.text = [ntxt stringByReplacingCharactersInRange:nrange withString:_t];
-			if(!noSound){
-				if(_bell == 0){
-					AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sniff" ofType:@"wav"]], &_bell);
+	if(enabled){
+		NSString *ntxt = [textView.text stringByReplacingCharactersInRange:range withString:text];
+		int options = NSBackwardsSearch;
+		if(caseInsensitive)
+			options |= NSCaseInsensitiveSearch;
+		NSArray *array = _snippets();
+		for(NSDictionary *dic in array){
+			NSRange nrange = [ntxt rangeOfString:[dic valueForKey:@"_code"] options:options];
+			if (nrange.location < [ntxt length]) {
+				NSString *_t = [dic valueForKey:@"_text"];
+				if([_t rangeOfString:@"%"].location != NSNotFound)
+					_t = _dateStringForFormat(_t);
+				textView.text = [ntxt stringByReplacingCharactersInRange:nrange withString:_t];
+				if(!noSound){
+					if(_bell == 0){
+						AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sniff" ofType:@"wav"]], &_bell);
+					}
+					AudioServicesPlaySystemSound(_bell);
 				}
-				AudioServicesPlaySystemSound(_bell);
-			}
-			b = NO;
-			break;
-		}	
+				b = NO;
+				break;
+			}	
+		}
 	}
 	
 	if(b){
@@ -134,26 +168,28 @@ static NSString* _dateStringForFormat(NSString*fmt){
 
 - (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string{
 	BOOL b = YES;
-	NSString *ntxt = [textField.text stringByReplacingCharactersInRange:range withString:string];
-	int options = NSBackwardsSearch;
-	if(caseInsensitive)
-		options |= NSCaseInsensitiveSearch;
-	NSArray *array = _snippets();
-	for(NSDictionary *dic in array){
-		NSRange nrange = [ntxt rangeOfString:[dic valueForKey:@"_code"] options:options];
-		if(nrange.location < [ntxt length]){
-			NSString *_t = [dic valueForKey:@"_text"];
-			if([_t rangeOfString:@"%"].location != NSNotFound)
-				_t = _dateStringForFormat(_t);
-			textField.text = [ntxt stringByReplacingCharactersInRange:nrange withString:_t];
-			if(!noSound){
-				if(_bell == 0){
-					AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sniff" ofType:@"wav"]], &_bell);
+	if(enabled){
+		NSString *ntxt = [textField.text stringByReplacingCharactersInRange:range withString:string];
+		int options = NSBackwardsSearch;
+		if(caseInsensitive)
+			options |= NSCaseInsensitiveSearch;
+		NSArray *array = _snippets();
+		for(NSDictionary *dic in array){
+			NSRange nrange = [ntxt rangeOfString:[dic valueForKey:@"_code"] options:options];
+			if(nrange.location < [ntxt length]){
+				NSString *_t = [dic valueForKey:@"_text"];
+				if([_t rangeOfString:@"%"].location != NSNotFound)
+					_t = _dateStringForFormat(_t);
+				textField.text = [ntxt stringByReplacingCharactersInRange:nrange withString:_t];
+				if(!noSound){
+					if(_bell == 0){
+						AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sniff" ofType:@"wav"]], &_bell);
+					}
+					AudioServicesPlaySystemSound(_bell);
 				}
-				AudioServicesPlaySystemSound(_bell);
+				b = NO;
+				break;
 			}
-			b = NO;
-			break;
 		}
 	}
 	if(b){
