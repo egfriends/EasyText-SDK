@@ -72,7 +72,8 @@ static NSString *_ETLocalizedString(NSString *key, NSString *defaultValue){
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
 	if(buttonIndex != [alertView cancelButtonIndex]){
-		static NSString* const ETAppURL = @"http://itunes.apple.com/us/app/id433107906?mt=8";
+		NSString* ETAppURL = [[NSString stringWithFormat:@"http://itunes.apple.com/%@/app/id433107906?mt=8", 
+									 [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]] lowercaseString];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:ETAppURL]];
 	}
 	[alert release];
