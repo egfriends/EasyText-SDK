@@ -54,13 +54,13 @@ static NSString *_ETLocalizedString(NSString *key, NSString *defaultValue){
 	UIPasteboard *_pb = [UIPasteboard pasteboardWithName:_StoreName create:NO];
 	if(nil == _pb){
 		enabled = NO;
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_ETLocalizedString(@"ET_NOTFOUND", @"EasyText not found")
-														message:_ETLocalizedString(@"ET_NOTFOUND_MSG", @"This feature need EasyText, it's a free app")
+		[alert release];
+		alert = [[UIAlertView alloc] initWithTitle:_ETLocalizedString(@"ET_NOTFOUND", @"EasyText not found")
+														message:_ETLocalizedString(@"ET_NOTFOUND_MSG", @"Download EasyText for free")
 													   delegate:self
 											  cancelButtonTitle:_ETLocalizedString(@"ET_CANCEL", @"No")
-											  otherButtonTitles:_ETLocalizedString(@"ET_OK", @"Ok"), nil];
+											  otherButtonTitles:_ETLocalizedString(@"ET_OK", @"Download"), nil];
 		[alert show];
-		[alert release];
 	}
 	else
 		enabled = YES;
@@ -75,10 +75,13 @@ static NSString *_ETLocalizedString(NSString *key, NSString *defaultValue){
 		static NSString* const ETAppURL = @"http://itunes.apple.com/us/app/id433107906?mt=8";
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:ETAppURL]];
 	}
+	[alert release];
+	alert = nil;
 }
 
 - (void)dealloc{
 	[self stopSniff];
+	[alert release];
 	AudioServicesDisposeSystemSoundID(_bell);
 	_bell = 0;
 	[super dealloc];

@@ -16,6 +16,7 @@
 	BOOL caseInsensitive, noSound;
 	BOOL enabled;
 	SystemSoundID _bell;
+	UIAlertView *alert;
 }
 
 @property(nonatomic, assign) BOOL caseInsensitive, noSound;
